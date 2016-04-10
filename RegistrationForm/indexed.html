@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Natural Language Form</title>
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script>
+		var result=true;
+		var status=0;
+		var name;
+		var gender;
+		var college;
+		var regno;
+		var email;
+		var mobile;
+		var accommodation;
+		var xhttp;
+		var msgtouser;
+		function evaluateForm() {
+		name= document.forms["ksform"]["name"].value;
+		gender = document.forms["ksform"]["gender"].value;
+		college= document.forms["ksform"]["college"].value;
+		regno= document.forms["ksform"]["regno"].value;
+		email= document.forms["ksform"]["email"].value;
+		mobile= document.forms["ksform"]["mobile"].value;
+		accommodation=document.forms["ksform"]["accommodation"].value;
+		xhttp=new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		if(xhttp.readyState==4 && xhttp.status==200)
+		{
+		document.getElementById("error").innerHTML=xhttp.responseText;
+		msgtouser=xhttp.responseText;
+		status=1;
+		}
+		};
+		xhttp.open("POST", "php/back.php", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("name="+name+"&gender="+gender+"&college="+college+"&regno="+regno+"&email="+email+"&mobile="+mobile+"&accommodation="+accommodation);
+		return false;
+		}
+		</script>
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body class="nl-blurred">
+		<div class="container demo-1">
+			<!-- Top Navigation -->
+			<div class="main clearfix">
+				<form id="nl-form" class="nl-form" name="ksform"  onsubmit="return evaluateForm()" method="post">
+					from,<br>
+						&nbsp;&nbsp;&nbsp;<select id="gender" name="gender">
+						<option value="M">Mr.</option>
+						<option value="F">Miss</option>
+					</select>&nbsp;&nbsp;
+					<input name="name" id="name" type="text" value="" placeholder="Name" data-subline="For example: <em>Kaushik</em> or <em>Fazrul</em>"><br>
+						&nbsp;&nbsp;&nbsp;<select id="college" name="college">
+						<option value="1">SASTRA University</option>
+						<option value="2">NIT</option>
+						<option value="3">IIT</option>
+						<option value="4">VIT</option>
+						<option value="5">SRM</option>
+						
+					</select><br>
+						&nbsp;&nbsp;&nbsp;<input name="regno" id="regno" type="text" value="" placeholder="Register No."><br>
+					
+					to,<br>
+						&nbsp;&nbsp;&nbsp;Kuruksastra<br>
+						&nbsp;&nbsp;&nbsp;SASTRA University<br>
+						&nbsp;&nbsp;&nbsp;Thanjavur - 613401<br>
+					sub: Request to register for the Tenth Edition of Kuruksastra. reg.<br>
+					Sir/Madam,<br>
+						&nbsp;&nbsp;&nbsp;As I am willing to participate in Kuruksastra'16, from 25th March 2016 to 27th march 2016 (i.e) Friday to Sunday, I would like to register myself for trip down memory lane.<br>
+						&nbsp;&nbsp;&nbsp;I <select id="accommodation" name="accommodation">
+						<option value="A">want</option>
+						<option value="NA">don't want</option>
+					</select> accommodation.<br>
+						&nbsp;&nbsp;&nbsp;I request you to kindly do the needful<br>
+						<center>Thanking You</center>
+						yours faithfully,<br>
+						name<br>
+						<input name="email" id="email" type="text" value="" placeholder="eMail ID" data-subline="For example: <em>abc@xyz.com</em>"><br>
+						<input name="mobile" id= "mobile" type="text" value="" placeholder="Contact No."  data-subline="For example: <em>1234567890</em>">
+
+					<div class="nl-submit-wrap">
+						<button id="nl-submit" class="nl-submit" type="submit">Register</button>
+					</div>
+					<div class="nl-overlay"></div>
+				</form>
+				<p>
+				<span id="error"></span>
+				</p>
+			</div>
+		</div><!-- /container -->
+		<script src="js/nlform.js"></script>
+		<script>
+			var nlform = new NLForm( document.getElementById( 'nl-form' ) );
+		</script>
+	</body>
+</html>

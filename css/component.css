@@ -1,0 +1,65 @@
+nav{
+	display: flex;
+	background-color: rgba(0,0,0,0);
+}
+nav a {
+	font-family: crayon;
+	src:url('../fonts/crayon/DK Crayon Crumble.ttf');
+	position: relative;
+	display: inline-block;
+	margin: 15px 15px;
+	outline: none;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	background-color: rgba(0,0,0,0);
+	font-size: 1.00em;
+}
+
+nav a:hover,
+nav a:focus {
+	outline: none;
+
+	color: #fff;
+}
+
+
+/* Effect 15: scale down, reveal */
+.cl-effect-15 a {
+	color: rgba(255,255,255,0.5);
+	font-weight: 700;
+	text-shadow: none;
+	background-color: rgba(0,0,0,0);
+}
+
+.cl-effect-15 a::before {
+	color: #fff;
+	content: attr(data-hover);
+	position: absolute;
+	background-color: rgba(0,0,0,0);
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+.cl-effect-15 a:hover::before,
+.cl-effect-15 a:focus::before {
+	-webkit-transform: scale(0.9);
+	color: #fff;
+	background-color: rgba(0,0,0,0);
+	-moz-transform: scale(0.9);
+	transform: scale(0.9);
+	opacity: 0;
+}
+
+
+
+.color-3 {
+	background-color: rgba(0,0,0,0);
+}
+
+
+

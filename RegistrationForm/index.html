@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Natural Language Form</title>
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script>
+		var result=true;
+		var status=0;
+		var name;
+		var gender;
+		var college;
+		var regno;
+		var email;
+		var mobile;
+		var accommodation;
+		var xhttp;
+		var collegename;
+		var msgtouser;
+		function evaluateForm() {
+		document.getElementById("error").innerHTML="Please Wait...";
+		name= document.forms["ksform"]["name"].value;
+		gender = document.forms["ksform"]["gender"].value;
+		college= document.forms["ksform"]["college"].value;
+		collegename=document.forms["ksform"]["collegename"].value;
+		regno= document.forms["ksform"]["regno"].value;
+		email= document.forms["ksform"]["email"].value;
+		mobile= document.forms["ksform"]["mobile"].value;
+		accommodation=document.forms["ksform"]["accommodation"].value;
+		xhttp=new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		if(xhttp.readyState==4 && xhttp.status==200)
+		{
+		document.getElementById("error").innerHTML=xhttp.responseText;
+		msgtouser=xhttp.responseText;
+		status=1;
+		}
+		};
+		xhttp.open("POST", "php/back.php", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("name="+name+"&gender="+gender+"&college="+college+"&collegename="+collegename+"&regno="+regno+"&email="+email+"&mobile="+mobile+"&accommodation="+accommodation);
+		return false;
+		}
+		</script>
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body class="nl-blurred">
+		<div class="container demo-1">
+			<!-- Top Navigation -->
+			<div class="main clearfix">
+				<form id="nl-form" class="nl-form" name="ksform"  onsubmit="return evaluateForm()" method="post">
+					from,<br>
+						&nbsp;&nbsp;&nbsp;<select id="gender" name="gender">
+						<option value="M">Mr.</option>
+						<option value="F">Miss</option>
+					</select>&nbsp;&nbsp;
+					<input name="name" id="name" type="text" value="" placeholder="Name" data-subline="For example: <em>Kaushik</em> or <em>Fazrul</em>"><br>
+						&nbsp;&nbsp;
+						<select style="border: initial;
+	background: initial;
+	font-family: initial;
+	font-size: initial;
+	color: initial;
+	font-weight: initial;
+	line-height: initial;
+	" id="college" name="college">
+						<option value="55">Select a College</option>
+<option value="3">A C Tech, Anna Univ, Chennai</option>
+<option value="4">Acharya Nagarjuna Univ, Guntur</option>
+<option value="6">Aditya College Of Engg, Madanapalle</option>
+<option value="7">Amrita Vishwa Vidyapeetham, Coimbatore</option>
+<option value="8">Anna Univ, Chennai</option>
+<option value="9">Annamacharya Insti of Tech and Sci, Tirupati</option>
+<option value="10">Arignar Anna Insti of Sci and Tech, Sriperumbudur</option>
+<option value="11">Bhoj Reddy Engg Coll for Women, Vinaynagar, HYD</option>
+<option value="12">Bits, HYd</option>
+<option value="13">BS Abdhur Rahman Univ, Chennai</option>
+<option value="14">Coimbatore Insti of Tech, Coimbatore</option>
+<option value="15">CVR Coll of Engg, Ibrahimpatnam,RR District, AP</option>
+<option value="16">Eluru Coll of Engg and Tech, Eluru</option>
+<option value="17">Erode Sengunthar Engg College, Thudupathi Erode</option>
+<option value="18">Francis Xavier Engg Coll, Tirunelveli</option>
+<option value="19">Guru Nanak Engg College, Ibrahimpatnam, HYD</option>
+<option value="20">IIT Madras</option>
+<option value="21">Jagruti Insti of Engg and Tech, Ibrahimpatnam, RR District, AP</option>
+<option value="22">KL Univ, Guntur</option>
+<option value="23">Kongu Engg Coll, Erode</option>
+<option value="24">KSR Coll of Engg, Tiruchengode</option>
+<option value="25">Madanappale Insti of Tech and Sci</option>
+<option value="26">Meenakshi Coll of Engg, KK Nagar</option>
+<option value="27">Meenakshi Sundaram Engg Coll, Chennai</option>
+<option value="28">MIT, Chennai</option>
+<option value="29">National Engg Coll, Kovilpatti</option>
+<option value="2">Nit, Trichy</option>
+<option value="30">Nit, Warangal</option>
+<option value="31">Prasad V.Potluri Siddhartha Insti of Tech, Vijayawada</option>
+<option value="32">PSG, Coimbatore</option>
+<option value="33">Ragiv Gandhi Coll of Engg, Sriperumbudur</option>
+<option value="34">Ramachandra Coll of Engg, Eluru</option>
+<option value="35">RVR & JC College</option>
+<option value="36">Sakthi Mariamman Engg Coll, Thandalam, Chennai</option>
+<option value="1">SASTRA UNIVERSITY</option>
+<option value="37">Sir CRR Coll of Engg, Eluru</option>
+<option value="38">Sir Vishveshwaraiah Institute of Science & Technology,Madanapalle</option>
+<option value="39">Sree Rama Engg Coll, Tirupati</option>
+<option value="40">SRK Insti of Tech, Vijayawada</option>
+<option value="5">SRM Univ, Kattankalathur</option>
+<option value="41">SRM Univ, Ramapuram</option>
+<option value="42">SRM Univ, Vadapalani</option>
+<option value="43">SV Coll of Engg, Tirupati</option>
+<option value="44">Tagore Engg Coll, Chennai</option>
+<option value="45">TKR Coll of Engg and Tech, Hyd, AP</option>
+<option value="46">Velalar Coll of Engg and Tech, Erode</option>
+<option value="47">Vels Univ, Pallavarm</option>
+<option value="48">Vidyaa Vikas College of Engg and Tech, Thiruchengode</option>
+<option value="49">Vignan’s Foundation for Sci, Tech and Research Univ, Vadlamudi</option>
+<option value="50">Vignan’s Lara Insti of Tech and Sci</option>
+<option value="51">Vijaya Insti of Tech for Women, Vijayawada</option>
+<option value="52">VIT, Vellore</option>
+<option value="53">VIT, Chennai</option>
+<option value="54">VR Siddhartha Engg Coll, Vijayawada</option>
+						</select>&nbsp;&nbsp;OR&nbsp;&nbsp;<input name="collegename" id="collegename" type="text" placeholder="Add a College"><br>
+						&nbsp;&nbsp;&nbsp;<input name="regno" id="regno" type="text" value="" placeholder="Register No."><br>
+					
+					to,<br>
+						&nbsp;&nbsp;&nbsp;Kuruksastra<br>
+						&nbsp;&nbsp;&nbsp;SASTRA University<br>
+						&nbsp;&nbsp;&nbsp;Thanjavur - 613401<br>
+					sub: Request to register for the Tenth Edition of Kuruksastra. reg.<br>
+					Sir/Madam,<br>
+						&nbsp;&nbsp;&nbsp;As I am willing to participate in Kuruksastra'16, from 25th March 2016 to 27th march 2016 (i.e) Friday to Sunday, I would like to register myself for trip down memory lane.<br>
+						&nbsp;&nbsp;&nbsp;I <select id="accommodation" name="accommodation">
+						<option value="A">want</option>
+						<option value="NA">don't want</option>
+					</select> accommodation.<br>
+						&nbsp;&nbsp;&nbsp;I request you to kindly do the needful<br>
+						<center>Thanking You</center>
+						yours obediently,<br>
+						name<br>
+						<input name="email" id="email" type="text" value="" placeholder="eMail ID" data-subline="For example: <em>abc@xyz.com</em>"><br>
+						<input name="mobile" id= "mobile" type="text" value="" placeholder="Contact No."  data-subline="For example: <em>1234567890</em>">
+
+					<div class="nl-submit-wrap">
+						<button id="nl-submit" class="nl-submit" type="submit">Register</button>
+					</div>
+					<div class="nl-overlay"></div>
+				</form>
+				<p>
+				<span id="error"></span>
+				</p>
+			</div>
+		</div><!-- /container -->
+		<script src="js/nlform.js"></script>
+		<script>
+			var nlform = new NLForm( document.getElementById( 'nl-form' ) );
+		</script>
+	</body>
+</html>
